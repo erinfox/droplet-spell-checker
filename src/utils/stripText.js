@@ -4,5 +4,6 @@
 export function stripText(text) {
   return text
     .split(/\s+/)
-    .map((word) => word.replace(/[^a-z]/gi, ""));
+    .map((word) => word.replace(/[^a-z]/gi, ""))
+    .filter(Boolean);
 }
