@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { loadDictionary } from "./utils/dictionary";
 import { stripText } from "./utils/stripText";
 import { spellChecker } from "./utils/spellChecker";
+import { getSuggestions } from "./utils/compareWordsLogic";
 
 function App() {
   const [dictionary, setDictionary] = useState(null);
   const [inputText, setInputText] = useState("");
   const [misspelledWords, setMisspelledWords] = useState([]);
+  const [suggestions, setSuggestions] = useState([]);
   const [hasChecked, setHasChecked] = useState(false);
 
   useEffect(() => {
@@ -18,8 +20,17 @@ function App() {
   }, []);
 
   const handleButtonClick = () => {
-    setMisspelledWords(spellChecker(stripText(inputText), dictionary));
+    // gets misspelled word
+    const misspelled = spellChecker(stripText(inputText), dictionary);
+    setMisspelledWords(misspelled);
+
+    // gets word suggestions
+    const wordSuggestions = misspelled.map((word) => ({
+      word,
+      suggestions: getSuggestions(word, dictionary),
+    }));
     setHasChecked(true);
+    setSuggestions(wordSuggestions);
   };
 
   const handleClearText = () => {
@@ -55,6 +66,9 @@ function App() {
                 {misspelledWords.map((word, index) => (
                   <li key={index} className="text-red-500">
                     {word}
+                    <span className="text-gray-600 text-sm ml-2">
+                      Suggestions: {suggestions[index]?.suggestions.join(", ")}
+                    </span>
                   </li>
                 ))}
               </ol>
