@@ -1,14 +1,6 @@
 #!/usr/bin/env node
 
-// /*
-//  * +---------+
-//  * |         |
-//  * | D I C T |
-//  * | I O N A |
-//  * | R Y     |
-//  * |         |
-//  * +---------+
-//  */
+// all this code is taken from claude since i like using the app in the browser :)
 
 import fs from "fs";
 import path from "path";
