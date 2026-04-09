@@ -41,7 +41,7 @@ npm test
 ## CLI Usage
 
 ```sh
-node cli.js dictionary.txt file-to-check.txt
+node cli.js public/dictionary.txt file-to-check.txt
 ```
 
 ---
