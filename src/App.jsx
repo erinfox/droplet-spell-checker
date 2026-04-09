@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { loadDictionary } from "./utils/dictionary";
 import { stripText } from "./utils/stripText";
+import { spellChecker } from "./utils/spellChecker";
 
 function App() {
   const [dictionary, setDictionary] = useState(null);
   const [inputText, setInputText] = useState("");
+  const [misspelledWords, setMisspelledWords] = useState("");
 
   useEffect(() => {
     async function initDictionary() {
@@ -24,10 +26,24 @@ function App() {
       />
       <button
         className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
-        onClick={() => console.log(stripText(inputText))}
+        onClick={() =>
+          setMisspelledWords(spellChecker(stripText(inputText), dictionary))
+        }
       >
         Check Spelling
       </button>
+      {misspelledWords.length > 0 && (
+        <div className="mt-6 w-full max-w-2xl">
+          <p className="mb-2">You have some misspelled words.....</p>
+          <ol className="list-decimal list-inside space-y-1">
+            {misspelledWords.map((word, index) => (
+              <li key={index} className="text-red-500">
+                {word}
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
     </div>
   );
 }
