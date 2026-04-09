@@ -4,6 +4,9 @@ A browser based spell checker built with React. Paste or type text into the text
 
 🔗 **Live demo:** https://droplet-spell-checker.vercel.app/
 
+![droplet-spell-checker](https://github.com/user-attachments/assets/c9938b6c-42a5-47c6-8029-be3b56f4de86)
+
+
 ---
 
 ## Features
@@ -62,7 +65,7 @@ Before writing any code, I built out a structured to do list similar to how I'd 
 
 I wanted to try Vite for scaffolding since my previous company used it but I wasn't directly involved when it was added.
 
-Here's an example of how I broke down the work:
+Here's an example of how I broke down the work. Each item matches roughly with each [commit](https://github.com/erinfox/droplet-spell-checker/commits/main/):
 
 - Setup project
   - React & Vite
@@ -96,7 +99,9 @@ Here's an example of how I broke down the work:
 
 ## How I Used AI
 
-After reading the project instructions, I opened Claude and used it as a coding buddy throughout, mostly for rubber ducking, quick lookups, and getting unstuck. I wasn't looking for Claude to write the project for me (but I did for tests, regex, ally design help, and algorithm implementation for suggested words). To see my conversation with Claude, check out `ai-transcript.md`.
+After reading the project instructions, I opened Claude and used it as a coding buddy throughout, mostly for rubber ducking, quick lookups, and getting unstuck. I wasn't looking for Claude to write the project for me (but I did for tests, regex, ally design help, and algorithm implementation for suggested words). To see my conversation with Claude, check out `[ai-transcript.md](https://github.com/erinfox/droplet-spell-checker/blob/main/ai-transcript.txt)`.
+
+If it were a personal project, or a work project, I would most likely use claude code integrated into the codebase. I didn't want to do that for this app. With Claude code, it suggest things out and does challenges as much and I thought that it would be important for y'all to see how I would do with out it and copilot. 
 
 ---
 
