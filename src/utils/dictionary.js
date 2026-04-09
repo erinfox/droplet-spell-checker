@@ -18,6 +18,9 @@ export async function loadDictionary() {
     const words = new Set(
       text.split("\n").map((word) => word.trim().toLowerCase()),
     );
+    // future: there's probs a better way to go this...
+    words.add("i");
+    words.add("a");
     return words;
   } catch (error) {
     console.error("Failed to load dictionary:", error);
