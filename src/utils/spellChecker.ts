@@ -17,8 +17,11 @@
 
 // both must be true — misspelled AND not a proper noun
 
-export function spellChecker(words, dictionary) {
-  return words.filter((word) => {
+export function spellChecker(
+  words: string[],
+  dictionary: Set<string>,
+): string[] {
+  return words.filter((word: string) => {
     const lowerCaseWord = word.toLowerCase();
     return !dictionary.has(lowerCaseWord) && word[0] === word[0].toLowerCase();
   });

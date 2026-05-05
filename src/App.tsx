@@ -5,11 +5,13 @@ import { spellChecker } from "./utils/spellChecker";
 import { getSuggestions } from "./utils/compareWordsLogic";
 
 function App() {
-  const [dictionary, setDictionary] = useState(null);
-  const [inputText, setInputText] = useState("");
-  const [misspelledWords, setMisspelledWords] = useState([]);
-  const [suggestions, setSuggestions] = useState([]);
-  const [hasChecked, setHasChecked] = useState(false);
+  const [dictionary, setDictionary] = useState<Set<string> | null>(null);
+  const [inputText, setInputText] = useState<string>("");
+  const [misspelledWords, setMisspelledWords] = useState<string[]>([]);
+  const [suggestions, setSuggestions] = useState<
+    { word: string; suggestions: string[] }[]
+  >([]);
+  const [hasChecked, setHasChecked] = useState<boolean>(false);
 
   useEffect(() => {
     async function initDictionary() {
@@ -20,6 +22,7 @@ function App() {
   }, []);
 
   const handleButtonClick = () => {
+    if (!dictionary) return;
     // gets misspelled word
     const misspelled = spellChecker(stripText(inputText), dictionary);
     setMisspelledWords(misspelled);

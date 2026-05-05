@@ -11,7 +11,7 @@
 // so, words = Set { 'aa', 'aah', 'aal', ... }
 // it returns an error in the console and an empty set if there's an error
 
-export async function loadDictionary() {
+export async function loadDictionary(): Promise<Set<string>> {
   try {
     const response = await fetch("/dictionary.txt");
     const text = await response.text();
@@ -24,6 +24,6 @@ export async function loadDictionary() {
     return words;
   } catch (error) {
     console.error("Failed to load dictionary:", error);
-    return new Set();
+    return new Set<string>();
   }
 }

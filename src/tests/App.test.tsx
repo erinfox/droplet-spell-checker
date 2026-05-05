@@ -9,7 +9,7 @@ beforeEach(() => {
     Promise.resolve({
       text: () => Promise.resolve("hello\nworld\nthe\nfox"),
     }),
-  );
+  ) as any;
 });
 
 test("App has no accessibility violations", async () => {
